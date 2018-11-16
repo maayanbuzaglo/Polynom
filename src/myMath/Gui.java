@@ -40,7 +40,7 @@ public class Gui extends JFrame {
 
 	/*
 	 * This function finds minimum and maximum points
-	 * and shows them on the graph by purple color.
+	 * and shows them on the graph by a purple color.
 	 */
 	public void minMax(Polynom p , double x0 , double x1) throws _Exception {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);

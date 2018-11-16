@@ -2,7 +2,7 @@ package myMath;
 
 /**
  * This class represents a simple "Monom" of shape a*x^b, where a is a real number and a is an integer (summed a none negative), 
- * see: https://en.wikipedia.org/wiki/Monomial 
+ * see: https://en.wikipedia.org/wiki/Monomial.
  * The class implements function and support simple operations as: construction, value at x, derivative, add and multiply. 
  * @author Maayan
  *
@@ -22,8 +22,8 @@ public class Monom implements function {
 
 	/**
 	 * This contractor gets the shape a*x^b and take the coefficient and the power of the Monom.
-	 * @param s
-	 * @throws _Exception
+	 * @param s String.
+	 * @throws _Exception for a wrong Monom.
 	 */
 	public Monom(String s) throws _Exception {
 		s = s.toLowerCase();
@@ -68,6 +68,7 @@ public class Monom implements function {
 
 	/**
 	 * This function gives us value at x.
+	 * @return f(x).
 	 */
 	public double f(double x) {	
 		return this._coefficient * (Math.pow(x,this._power));
@@ -75,7 +76,8 @@ public class Monom implements function {
 
 	/**
 	 * This function gives us Monom's derivative.
-	 * @throws _Exception 
+	 * @throws _Exception for a wrong Monom.
+	 * @return derivative.
 	 */
 	public Monom derivative() throws _Exception {
 		if(this._power == 0) {
@@ -88,7 +90,9 @@ public class Monom implements function {
 	 *This function check if the power of 2 Monoms equals.
 	 *if yes: add.
 	 *else: exception.
-	 * @throws _Exception 
+	 * @param m Monom.
+	 * @throws _Exception for a wrong Monom.
+	 * @return add.
 	 */
 	public Monom add(Monom m) throws _Exception {
 		if(this._power != m._power) {
@@ -100,7 +104,9 @@ public class Monom implements function {
 
 	/**
 	 * This function multiply 2 Monoms.
-	 * @throws _Exception 
+	 * @param m Monom.
+	 * @throws _Exception for a wrong Monom.
+	 * @return multiply.
 	 */
 	public Monom multiply(Monom m) throws _Exception {	
 		return new Monom(this._coefficient * m._coefficient,this._power + m._power);
@@ -108,8 +114,8 @@ public class Monom implements function {
 
 	/**
 	 * This function check if 2 Monoms are equal.
-	 * @param m
-	 * @return
+	 * @param m Monom.
+	 * @return true/false.
 	 */
 	public boolean equal(Monom m) {
 		return this.get_coefficient() == m.get_coefficient() && 

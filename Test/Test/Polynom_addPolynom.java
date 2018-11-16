@@ -17,7 +17,7 @@ class Polynom_addPolynom {
 	@Test
 	void test() throws _Exception {
 		Polynom p = new Polynom("7x^2 + 3*x^4 + 3*x");
-		Polynom p2 = new Polynom("1x^2 - 1x^4 + 1x");
+		Polynom p2 = new Polynom("x^2 - x^4 + x");
 		Polynom p3 = new Polynom("8x^2 + 2x^4 + 4*x");
 		p.add(p2);
 		assertEquals(true,p.equals(p3));

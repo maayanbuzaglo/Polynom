@@ -1,5 +1,4 @@
 package myMath;
-
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -12,9 +11,9 @@ import myMath.Monom;
 
 /**
  * This class represents a Polynom with add, multiply functionality, it also should support the following:
- * 1. Riemann's Integral: https://en.wikipedia.org/wiki/Riemann_integral
- * 2. Finding a numerical value between two values (currently support root only f(x)=0).
- * 3. Derivative
+ * 1. Riemann's Integral: https://en.wikipedia.org/wiki/Riemann_integral.
+ * 2. Finding a numerical value between two values (currently support root only f(x) = 0).
+ * 3. Derivative.
  * @author Maayan
  *
  */
@@ -24,7 +23,7 @@ public class Polynom implements Polynom_able {
 	ArrayList<Monom> list_Polinom = new ArrayList<Monom>();
 	Iterator<Monom> it;
 	Monom mon;
-	private final	double eps=0.01;
+	private final	double eps = 0.01;
 	// ********** add your code below ***********
 
 	public Polynom() {
@@ -46,9 +45,9 @@ public class Polynom implements Polynom_able {
 	}
 
 	/**
-	 * This function sort the Polynom
+	 * This function sort the Polynom.
 	 * from the smallest Monom (smallest power) to the biggest Monom (biggest power).
-	 * @throws _Exception
+	 * @throws _Exception for a wrong Monom.
 	 */
 	public void sort() throws _Exception {
 		for (int i = 0; i < this.list_Polinom.size()-1; i++) {
@@ -66,9 +65,9 @@ public class Polynom implements Polynom_able {
 	}
 
 	/**
-	 * This function check if there is 2 Monoms with the same power.
-	 *  if they have - add them.
-	 * @throws _Exception 
+	 * This function check if there are 2 Monoms with the same power.
+	 *  if there are - add them.
+	 * @throws _Exception for a wrong Monom.
 	 */ 
 	public void check_Duplicate() throws _Exception {
 		for (int i = 0; i < this.list_Polinom.size(); i++) {
@@ -86,7 +85,7 @@ public class Polynom implements Polynom_able {
 
 	/**
 	 * This function check if there is Monom with 0 coefficient.
-	 * if there is delete it.
+	 * if there is - delete it.
 	 */
 	public void Reset_Coefficient() {
 		for (int i = 0; i < this.list_Polinom.size(); i++) {
@@ -111,9 +110,9 @@ public class Polynom implements Polynom_able {
 	}
 
 	/**
-	 * This function add the other list of Monon
+	 * This function add the other list of Monon,
 	 *  Then checks duplicate and erase it.
-	 * @throws _Exception 
+	 * @throws _Exception for a wrong Monom.
 	 */ 
 	public void add(Polynom_able p1) throws _Exception {
 		this.it = p1.iteretor();
@@ -126,10 +125,8 @@ public class Polynom implements Polynom_able {
 	}
 
 	/**
-	 * Add m1 to this Polynom.
-	 * @param m1 Monom
-	 * This function add monom to the Polinom.
-	 * @throws _Exception 
+	 * This function add Monom to the Polinom.
+	 * @throws _Exception for a wrong Monom.
 	 */
 	@Override
 	public void add(Monom m1) throws _Exception {
@@ -149,9 +146,9 @@ public class Polynom implements Polynom_able {
 
 	/**
 	 * This function check if other Polynom has the same power of Monom.
-	 * if it has: subtract the other Monom's from the original Monom.
-	 * else: add -p1 to the Polynom.
-	 * @throws _Exception 
+	 * if it has: subtract the other Monom's coefficient from the original Monom.
+	 * else: add - p1 to the Polynom.
+	 * @throws _Exception for a wrong Monom.
 	 */
 	@Override
 	public void substract(Polynom_able p1) throws _Exception {
@@ -167,7 +164,7 @@ public class Polynom implements Polynom_able {
 
 	/**
 	 * This function multiply 2 Polynoms.
-	 * @throws _Exception 
+	 * @throws _Exception for a wrong Monom.
 	 */
 	@Override
 	public void multiply(Polynom_able p1) throws _Exception {
@@ -190,8 +187,7 @@ public class Polynom implements Polynom_able {
 	}
 
 	/**
-	 * This function checks if 2 Polynoms are same.
-	 * @throws _Exception 
+	 * This function checks if 2 Polynoms are similar.
 	 */
 	@Override
 	public boolean equals(Polynom_able p1)  {
@@ -225,13 +221,12 @@ public class Polynom implements Polynom_able {
 	}
 
 	/**
-	 * Compute a value x' (x0<=x'<=x1) for with |f(x')| < eps
-	 * assuming (f(x0)*f(x1)<=0, returns f(x2) such that:
-	 * *	(i) x0<=x2<=x2 && (ii) f(x2)<eps
-	 * @param x0 starting point
-	 * @param x1 end point
-	 * @param eps step (positive) value
-	 * @return
+	 * This function compute a value x' (x0 <= x' <= x1) for with |f(x')| < eps,
+	 * assuming (f(x0) * f(x1) <= 0, returns f(x2) such that:
+	 * (i) x0 <= x2 <= x2 && (ii) f(x2) < eps.
+	 * @param x0 starting point.
+	 * @param x1 end point.
+	 * @param eps step (positive) value.
 	 */
 	@Override
 	public double root(double x0, double x1, double eps) {
@@ -268,7 +263,7 @@ public class Polynom implements Polynom_able {
 
 	/**
 	 * This function derivative the Polynom by the derivative function of Monom.
-	 * @throws _Exception 
+	 * @throws _Exception for a wrong Monom.
 	 */
 	@Override
 	public Polynom_able derivative() throws _Exception {
@@ -286,8 +281,8 @@ public class Polynom implements Polynom_able {
 	}
 
 	/**
-	 * Compute Riemann's Integral over this Polynom starting from x0, till x1 using eps size steps.
-	 * @return the approximated area above the x-axis below this Polynom and between the [x0,x1] range. 
+	 * This function compute Riemann's Integral over this Polynom starting from x0, till x1 using eps size steps.
+	 * @return the approximated area above the x - axis below this Polynom and between the [x0,x1] range. 
 	 */
 	@Override
 	public double area(double x0, double x1, double eps) {
@@ -301,8 +296,22 @@ public class Polynom implements Polynom_able {
 		return sum;
 	}
 
+	/*
+	 * This function compute the area under the x line.
+	 */
+	public void areaGui(double x0, double x1) {
+		double part = Math.abs((x1 - x0) / this.eps);
+		double area = 0;
+		for(int i = 0; i < part; i++) {
+			if(this.f(x0) < 0)
+				area = area + this.f(x0) * eps;
+			x0 += eps;
+		}
+		System.out.println(area);
+	}
+
 	/**
-	 * This function gets the iterator of this Polynom.
+	 * Iterator of this Polynom.
 	 */
 	@Override
 	public Iterator<Monom> iteretor() {
@@ -319,16 +328,5 @@ public class Polynom implements Polynom_able {
 			}
 		}
 		return Polinom;
-	}
-	
-	public void areaGui(double x0, double x1) {
-		double part = Math.abs((x1 - x0) / this.eps);
-		double area = 0;
-		for(int i = 0; i < part; i++) {
-			if(this.f(x0) < 0)
-				area = area + this.f(x0) * eps;
-			x0 += eps;
-		}
-		System.out.println(area);
 	}
 }

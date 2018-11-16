@@ -15,7 +15,7 @@ class Monom_add {
 		Monom m = new Monom(5,2);
 		Monom n = new Monom(10,2);
 		Monom mn = new Monom(15,2);
-		Monom c = m.add(n);
+		Monom c = m;
 		assertEquals(true,c.equal(mn));
 	}
 }
