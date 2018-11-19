@@ -4,7 +4,7 @@ public class Examples {
 
 	public static void main(String[] args) throws _Exception {
 
-		Polynom p = new Polynom("7x^2 - 3*x^4 + 3*x"); // Create a Polynom.
+		Polynom p = new Polynom("7x^2 - 3*x^4 - 3*x"); // Create a Polynom.
 		System.out.println(p.toString());
 		//p.derivative(); // Check for the derivative.
 		System.out.println(p.toString());

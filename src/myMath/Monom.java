@@ -21,7 +21,7 @@ public class Monom implements function {
 	// ***************** add your code below **********************
 
 	/**
-	 * This contractor gets the shape a*x^b and take the coefficient and the power of the Monom.
+	 * This constructor gets the shape a*x^b and take the coefficient and the power of the Monom.
 	 * @param s String.
 	 * @throws _Exception for a wrong Monom.
 	 */
